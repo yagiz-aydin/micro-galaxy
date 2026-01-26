@@ -3,7 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run serve:all",
+    "start:shell": "ng serve shell",
+    "start:earth": "ng serve earth",
+    "start:mars": "ng serve mars",
+    "start:mercure": "ng serve mercure",
+    "start:venus": "ng serve venus",
+    "serve:all": "concurrently \"ng serve shell\" \"ng serve earth\" \"ng serve mars\" \"ng serve mercure\" \"ng serve venus\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -23,18 +29,27 @@
   "private": true,
   "packageManager": "npm@10.8.2",
   "dependencies": {
+    "@angular/animations": "^21.1.0",
     "@angular/common": "^21.1.0",
     "@angular/compiler": "^21.1.0",
     "@angular/core": "^21.1.0",
     "@angular/forms": "^21.1.0",
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
+    "@softarc/native-federation-node": "^3.3.4",
+    "es-module-shims": "^1.5.12",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular-architects/native-federation": "^21.1.0",
+    "@angular-devkit/build-angular": "^21.1.1",
+    "@angular/build": "^21.1.1",
     "@angular/cli": "^21.1.1",
     "@angular/compiler-cli": "^21.1.0",
-    "typescript": "~5.9.2"
+    "concurrently": "^9.2.1",
+    "jsdom": "^27.1.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
   }
 }

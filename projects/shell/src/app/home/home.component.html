@@ -1,0 +1,36 @@
+<div class="dashboard-container">
+  <div class="header">
+    <h2>Mission Control Center</h2>
+    <p>Live feed from all planetary outposts</p>
+  </div>
+
+  <div class="grid">
+    <div class="card mercure">
+      <div class="card-header">Mercurius</div>
+      <div class="card-body">
+        <ng-container *ngComponentOutlet="mercureComp(); inputs: { stats: stats.mercure }"></ng-container>
+      </div>
+    </div>
+
+    <div class="card venus">
+      <div class="card-header">Venus</div>
+      <div class="card-body">
+        <ng-container *ngComponentOutlet="venusComp(); inputs: { stats: stats.venus }"></ng-container>
+      </div>
+    </div>
+
+    <div class="card earth">
+      <div class="card-header">Earth</div>
+      <div class="card-body">
+        <ng-container *ngComponentOutlet="earthComp(); inputs: { stats: stats.earth }"></ng-container>
+      </div>
+    </div>
+
+    <div class="card mars">
+      <div class="card-header">Mars</div>
+      <div class="card-body">
+        <ng-container *ngComponentOutlet="marsComp(); inputs: { stats: stats.mars }"></ng-container>
+      </div>
+    </div>
+  </div>
+</div>

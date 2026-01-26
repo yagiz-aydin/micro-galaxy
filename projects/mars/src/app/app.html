@@ -1,0 +1,25 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <img src="assets/images/mars.png" alt="Mars" width="200">
+      
+      @if (stats) {
+        <div class="stats-panel">
+          <div class="stat-row">
+            <span>Status:</span>
+            <span [class]="'status-badge ' + stats.status.toLowerCase()">{{ stats.status }}</span>
+          </div>
+          <div class="stat-row">
+            <span>Crew:</span>
+            <strong>{{ stats.crew }}</strong>
+          </div>
+          <div class="stat-row">
+            <span>Temp:</span>
+            <strong>{{ stats.temperature }}°C</strong>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</main>
+<router-outlet />

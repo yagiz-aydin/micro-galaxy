@@ -21,5 +21,37 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/venus/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/venus/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/mercure/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/mercure/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/earth/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/earth/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/mars/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/mars/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/shell/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/shell/tsconfig.spec.json"
+    }
+  ]
 }

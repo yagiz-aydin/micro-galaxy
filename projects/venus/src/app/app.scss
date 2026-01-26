@@ -1,0 +1,43 @@
+
+.stats-panel {
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.status-badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  &.active {
+    background-color: #e6fffa;
+    color: #047857;
+  }
+  
+  &.critical {
+    background-color: #fff5f5;
+    color: #c53030;
+  }
+  
+  &.dormant {
+    background-color: #edf2f7;
+    color: #4a5568;
+  }
+}

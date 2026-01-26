@@ -1,0 +1,64 @@
+.dashboard-container {
+  padding: 2rem;
+  background-color: #f0f2f5;
+  min-height: calc(100vh - 60px); // Subtract nav height
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #6c757d;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .card-header {
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  &.mercure .card-header { background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%); }
+  &.venus .card-header { background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%); }
+  &.earth .card-header { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
+  &.mars .card-header { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); }
+
+  .card-body {
+    padding: 1.5rem;
+    min-height: 300px; // Ensure space for content
+    
+    // Scale down MFE content if needed to fit in card
+    ::ng-deep app-root {
+      display: block;
+      transform-origin: top left;
+    }
+  }
+}
