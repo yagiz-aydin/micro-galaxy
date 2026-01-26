@@ -10,7 +10,7 @@
     "start:mercure": "ng serve mercure",
     "start:venus": "ng serve venus",
     "serve:all": "concurrently \"ng serve shell\" \"ng serve earth\" \"ng serve mars\" \"ng serve mercure\" \"ng serve venus\"",
-    "build": "ng build shell",
+    "build": "npm run build:all",
     "build:shell": "ng build shell",
     "build:earth": "ng build earth",
     "build:mars": "ng build mars",
