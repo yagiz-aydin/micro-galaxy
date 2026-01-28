@@ -1,9 +1,8 @@
 :host {
   --primary-color: #6366f1;
   --secondary-color: #ec4899;
-  --bg-gradient: linear-gradient(135deg, #1e1e2e 0%, #2a2a40 100%);
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --text-primary: #ffffff;
+  --card-bg: rgba(60, 60, 60, 0.05);
+  --text-primary: #383838;
   --text-secondary: #a1a1aa;
   --glass-border: rgba(255, 255, 255, 0.1);
   
@@ -11,7 +10,6 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   height: 100vh;
   margin: 0;
-  background: var(--bg-gradient);
   color: var(--text-primary);
   overflow: hidden;
 }
@@ -71,7 +69,7 @@
     margin: 0;
     font-size: 1.75rem;
     font-weight: 600;
-    background: linear-gradient(to right, #fff, #a5b4fc);
+    background: linear-gradient(to right, #000000, #cadf89);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -109,7 +107,7 @@
     &.code {
       font-family: 'Fira Code', monospace;
       font-size: 0.85rem;
-      background: rgba(0,0,0,0.2);
+      background: rgba(0,0,0,0.05);
       padding: 0.25rem 0.5rem;
       border-radius: 6px;
       width: fit-content;

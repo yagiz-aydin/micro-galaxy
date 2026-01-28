@@ -2,6 +2,7 @@ import { Component, inject, signal, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { map, Subscription } from 'rxjs';
+import { MicrosoftGraphUserDto } from './types/dto/User';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +15,26 @@ export class App implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private sub?: Subscription;
   
-  protected readonly profile = signal<any>({});
+  protected readonly profile = signal<MicrosoftGraphUserDto>({
+    '@odata.context': '',
+    id: '',
+    displayName: '',
+    givenName: '',
+    surname: '',
+    jobTitle: null,
+    officeLocation: null,
+    preferredLanguage: null,
+    userPrincipalName: '',
+    businessPhones: [],
+    mail: null,
+    mobilePhone: null
+  });
 
   ngOnInit() {
     this.sub = this.route.data.pipe(
       map(d => d['user'])
     ).subscribe(user => {
-      this.profile.set(user || {});
+      this.profile.set(user);
     });
   }
 
