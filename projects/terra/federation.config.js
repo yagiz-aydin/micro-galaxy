@@ -2,11 +2,11 @@ const { withNativeFederation, shareAll } = require('@angular-architects/native-f
 
 module.exports = withNativeFederation({
   // Uygulamanın kimliği
-  name: 'earth',
+  name: 'terra',
 
   // Dış dünyaya açtığımız "yerçekimsiz" bileşenler
   exposes: {
-    './LandingPad': './projects/earth/src/app/app.ts',
+    './LandingPad': './projects/terra/src/app/app.ts',
   },
 
   // Ortak kullanılan yakıtlar (Angular çekirdek kütüphaneleri)

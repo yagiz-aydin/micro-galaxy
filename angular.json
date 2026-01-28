@@ -213,15 +213,15 @@
 				}
 			}
 		},
-		"earth": {
+		"terra": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:component": {
 					"style": "scss"
 				}
 			},
-			"root": "projects/earth",
-			"sourceRoot": "projects/earth/src",
+			"root": "projects/terra",
+			"sourceRoot": "projects/terra/src",
 			"prefix": "app",
 			"architect": {
 				"build": {
@@ -229,10 +229,10 @@
 					"options": {},
 					"configurations": {
 						"production": {
-							"target": "earth:esbuild:production"
+							"target": "terra:esbuild:production"
 						},
 						"development": {
-							"target": "earth:esbuild:development",
+							"target": "terra:esbuild:development",
 							"dev": true
 						}
 					},
@@ -241,7 +241,7 @@
 				"serve": {
 					"builder": "@angular-architects/native-federation:build",
 					"options": {
-						"target": "earth:serve-original:development",
+						"target": "terra:serve-original:development",
 						"rebuildDelay": 500,
 						"dev": true,
 						"cacheExternalArtifacts": false,
@@ -254,13 +254,13 @@
 				"esbuild": {
 					"builder": "@angular/build:application",
 					"options": {
-						"browser": "projects/earth/src/main.ts",
-						"tsConfig": "projects/earth/tsconfig.app.json",
+						"browser": "projects/terra/src/main.ts",
+						"tsConfig": "projects/terra/tsconfig.app.json",
 						"inlineStyleLanguage": "scss",
 						"assets": [
 							{
 								"glob": "**/*",
-								"input": "projects/earth/public"
+								"input": "projects/terra/public"
 							},
 							{
 								"glob": "**/*",
@@ -269,7 +269,7 @@
 							}
 						],
 						"styles": [
-							"projects/earth/src/styles.scss"
+							"projects/terra/src/styles.scss"
 						],
 						"polyfills": [
 							"es-module-shims"
@@ -303,10 +303,10 @@
 					"builder": "@angular/build:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "earth:esbuild:production"
+							"buildTarget": "terra:esbuild:production"
 						},
 						"development": {
-							"buildTarget": "earth:esbuild:development"
+							"buildTarget": "terra:esbuild:development"
 						}
 					},
 					"defaultConfiguration": "development",
@@ -517,7 +517,106 @@
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 4200
+						"port": 4200,
+						"proxyConfig": "projects/shell/proxy.conf.json"
+					}
+				}
+			}
+		},
+		"profile": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/profile",
+			"sourceRoot": "projects/profile/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {},
+					"configurations": {
+						"production": {
+							"target": "profile:esbuild:production"
+						},
+						"development": {
+							"target": "profile:esbuild:development",
+							"dev": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "@angular-architects/native-federation:build",
+					"options": {
+						"target": "profile:serve-original:development",
+						"rebuildDelay": 500,
+						"dev": true,
+						"cacheExternalArtifacts": false,
+						"port": 0
+					}
+				},
+				"test": {
+					"builder": "@angular/build:unit-test"
+				},
+				"esbuild": {
+					"builder": "@angular/build:application",
+					"options": {
+						"browser": "projects/profile/src/main.ts",
+						"tsConfig": "projects/profile/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/profile/public"
+							}
+						],
+						"styles": [
+							"projects/profile/src/styles.scss"
+						],
+						"polyfills": [
+							"es-module-shims"
+						]
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kB",
+									"maximumError": "1MB"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "4kB",
+									"maximumError": "8kB"
+								}
+							],
+							"outputHashing": "all"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve-original": {
+					"builder": "@angular/build:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "profile:esbuild:production"
+						},
+						"development": {
+							"buildTarget": "profile:esbuild:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4205
 					}
 				}
 			}

@@ -36,10 +36,10 @@
       "path": "./projects/mercure/tsconfig.spec.json"
     },
     {
-      "path": "./projects/earth/tsconfig.app.json"
+      "path": "./projects/terra/tsconfig.app.json"
     },
     {
-      "path": "./projects/earth/tsconfig.spec.json"
+      "path": "./projects/terra/tsconfig.spec.json"
     },
     {
       "path": "./projects/mars/tsconfig.app.json"
@@ -52,6 +52,12 @@
     },
     {
       "path": "./projects/shell/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/profile/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/profile/tsconfig.spec.json"
     }
   ]
 }

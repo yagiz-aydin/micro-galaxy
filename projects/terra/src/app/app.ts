@@ -8,6 +8,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('earth');
+  protected readonly title = signal('terra');
   @Input() stats: any;
 }

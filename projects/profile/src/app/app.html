@@ -1,0 +1,44 @@
+@if (profile() && profile().id) {
+<main class="profile-container">
+  <div class="glass-card">
+    <div class="header">
+      <div class="avatar">
+        {{ profile().givenName?.charAt(0) }}{{ profile().surname?.charAt(0) }}
+      </div>
+      <div class="info">
+        <h1>{{ profile().displayName }}</h1>
+        <p class="email">{{ profile().userPrincipalName }}</p>
+      </div>
+    </div>
+    
+    <div class="details-grid">
+      <div class="detail-item">
+        <span class="label">Given Name</span>
+        <span class="value">{{ profile().givenName }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Surname</span>
+        <span class="value">{{ profile().surname }}</span>
+      </div>
+       <div class="detail-item">
+        <span class="label">Preferred Language</span>
+        <span class="value">{{ profile().preferredLanguage }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">ID</span>
+        <span class="value code">{{ profile().id }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Job Title</span>
+        <span class="value">{{ profile().jobTitle || 'Not Set' }}</span>
+      </div>
+       <div class="detail-item">
+        <span class="label">Office Location</span>
+        <span class="value">{{ profile().officeLocation || 'Remote' }}</span>
+      </div>
+    </div>
+  </div>
+</main>
+} @else {
+  <div class="loading">Loading profile...</div>
+}

@@ -21,14 +21,14 @@ export class HomeComponent implements OnInit {
   stats = {
     mercure: this.missionService.getMissionStats('Mercure'),
     venus: this.missionService.getMissionStats('Venus'),
-    earth: this.missionService.getMissionStats('Earth'),
+    terra: this.missionService.getMissionStats('Terra'),
     mars: this.missionService.getMissionStats('Mars')
   };
 
   async ngOnInit() {
     this.mercureComp.set(await loadRemoteModule('mercure', './Component').then(m => m.App));
     this.venusComp.set(await loadRemoteModule('venus', './Component').then(m => m.App));
-    this.earthComp.set(await loadRemoteModule('earth', './LandingPad').then(m => m.App));
+    this.earthComp.set(await loadRemoteModule('terra', './LandingPad').then(m => m.App));
     this.marsComp.set(await loadRemoteModule('mars', './Component').then(m => m.App));
   }
 }

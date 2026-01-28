@@ -30,7 +30,7 @@ export class MissionService {
     switch(planet.toLowerCase()) {
       case 'mercure': return 430;
       case 'venus': return 462;
-      case 'earth': return 15;
+      case 'terra': return 15;
       case 'mars': return -63;
       default: return 0;
     }

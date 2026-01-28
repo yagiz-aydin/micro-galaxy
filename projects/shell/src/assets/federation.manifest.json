@@ -1,6 +1,7 @@
 {
   "mercure": "http://localhost:4201/remoteEntry.json",
   "venus": "http://localhost:4202/remoteEntry.json",
-  "earth": "http://localhost:4203/remoteEntry.json",
-  "mars": "http://localhost:4204/remoteEntry.json"
+  "terra": "http://localhost:4203/remoteEntry.json",
+  "mars": "http://localhost:4204/remoteEntry.json",
+  "profile": "http://localhost:4205/remoteEntry.json"
 }

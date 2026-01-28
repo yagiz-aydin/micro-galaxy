@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/native-federation';
+import { inject } from '@angular/core';
+import { UserService } from './services/user.service';
 
 export const routes: Routes = [
   {
@@ -17,13 +19,21 @@ export const routes: Routes = [
       loadRemoteModule('venus', './Component').then(m => m.App)
   },
   {
-    path: 'earth',
+    path: 'terra',
     loadComponent: () => 
-      loadRemoteModule('earth', './LandingPad').then(m => m.App)
+      loadRemoteModule('terra', './LandingPad').then(m => m.App)
   },
   {
     path: 'mars',
     loadComponent: () => 
       loadRemoteModule('mars', './Component').then(m => m.App)
+  },
+  {
+    path: 'profile',
+    loadComponent: () => 
+      loadRemoteModule('profile', './Component').then(m => m.App),
+    resolve: {
+      user: () => inject(UserService).getUser()
+    }
   },
 ];

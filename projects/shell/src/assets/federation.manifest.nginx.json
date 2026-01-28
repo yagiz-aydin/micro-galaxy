@@ -1,6 +1,7 @@
 {
   "mercure": "/mercure/remoteEntry.json",
   "venus": "/venus/remoteEntry.json",
-  "earth": "/earth/remoteEntry.json",
-  "mars": "/mars/remoteEntry.json"
+  "terra": "/terra/remoteEntry.json",
+  "mars": "/mars/remoteEntry.json",
+  "profile": "/profile/remoteEntry.json"
 }
