@@ -45,8 +45,10 @@
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
     "@softarc/native-federation-node": "^3.3.4",
+    "@types/three": "^0.182.0",
     "es-module-shims": "^1.5.12",
     "rxjs": "~7.8.0",
+    "three": "^0.182.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

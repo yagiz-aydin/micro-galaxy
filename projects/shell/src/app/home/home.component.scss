@@ -1,6 +1,5 @@
 .dashboard-container {
   padding: 2rem;
-  background-color: #f0f2f5;
   min-height: calc(100vh - 60px); // Subtract nav height
 }
 
@@ -49,16 +48,15 @@
   &.mercure .card-header { background: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%); }
   &.venus .card-header { background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%); }
   &.terra .card-header { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
-  &.mars .card-header { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); }
+  &.mars .card-header { background: linear-gradient(135deg, #813e406c 0%, #cd7031 99%, #177c40 100%); }
 
   .card-body {
     padding: 1.5rem;
-    min-height: 300px; // Ensure space for content
-    
-    // Scale down MFE content if needed to fit in card
+    min-height: 300px;
     ::ng-deep app-root {
       display: block;
       transform-origin: top left;
     }
   }
 }
+

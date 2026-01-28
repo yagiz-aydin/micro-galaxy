@@ -1,7 +1,7 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { loadRemoteModule } from '@angular-architects/native-federation';
-import { MissionService, MissionStats } from '../services/mission.service';
+import { MissionService } from '../services/mission.service';
 
 @Component({
   selector: 'app-home',

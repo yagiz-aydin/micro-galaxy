@@ -2,10 +2,17 @@
   <div class="logo">🚀 Space Shell</div>
   <div class="links">
     <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-    <a routerLink="/mercure" routerLinkActive="active">Mercure</a>
-    <a routerLink="/venus" routerLinkActive="active">Venus</a>
-    <a routerLink="/terra" routerLinkActive="active">Terra</a>
-    <a routerLink="/mars" routerLinkActive="active">Mars</a>
+    <div class="dropdown">
+      <button class="dropbtn">Planets 
+        <i class="arrow down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a routerLink="/mercure" routerLinkActive="active">Mercure</a>
+        <a routerLink="/venus" routerLinkActive="active">Venus</a>
+        <a routerLink="/terra" routerLinkActive="active">Terra</a>
+        <a routerLink="/mars" routerLinkActive="active">Mars</a>
+      </div>
+    </div>
     <a routerLink="/profile" routerLinkActive="active">Profile</a>
   </div>
 </nav>
