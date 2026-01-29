@@ -32,15 +32,16 @@ export class App implements OnInit, OnDestroy {
   });
 
   protected readonly applications = signal<Application[]>([]);
+  protected readonly allUsers = signal<MicrosoftGraphUserDto[]>([]);
 
   ngOnInit() {
     this.sub = this.route.data.pipe(
-      map(d => ({ user: d['user'], applications: d['applications'] }))
+      map(d => ({ user: d['user'], applications: d['applications'], allUsers: d['allUsers']}))
     ).subscribe({
-      next: ({ user, applications }) => {
-        console.log('Profile App: Received data', { user, applications });
+      next: ({ user, applications, allUsers }) => {
         this.profile.set(user);
         this.applications.set(applications.value);
+        this.allUsers.set(allUsers.value);
       },
       error: (err) => {
         console.error('Profile App: Error receiving data', err);

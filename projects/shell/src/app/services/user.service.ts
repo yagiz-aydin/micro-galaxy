@@ -11,4 +11,8 @@ export class UserService {
   getUser() {
     return this.http.get<MicrosoftGraphUserDto>('/api/v1/user');
   }
+
+  getAllUser(){
+    return this.http.get<MicrosoftGraphUserDto[]>('/api/v1/user/all');
+  }
 }

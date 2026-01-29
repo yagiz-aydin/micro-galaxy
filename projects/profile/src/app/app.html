@@ -68,6 +68,33 @@
       } @else {
         <div class="empty-state">No applications found.</div>
       }
+      <h2>Organization</h2>
+      @if (allUsers() && allUsers().length > 0) {
+        <div class="applications-table-container">
+          <table class="applications-table">
+            <thead>
+              <tr>
+                <th>Display Name</th>
+                <th>Mail</th>
+                <th>Job Title</th>
+                <th>Office</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (user of allUsers(); track user.id) {
+                <tr>
+                  <td>{{ user.displayName }}</td>
+                  <td>{{ user.mail || user.userPrincipalName }}</td>
+                  <td>{{ user.jobTitle || 'N/A' }}</td>
+                  <td>{{ user.officeLocation || 'N/A' }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      } @else {
+        <div class="empty-state">No users found.</div>
+      }
     </div>
   </div>
 </main>

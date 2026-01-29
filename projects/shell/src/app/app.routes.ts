@@ -35,6 +35,7 @@ export const routes: Routes = [
       loadRemoteModule('profile', './Component').then(m => m.App),
     resolve: {
       user: () => inject(UserService).getUser(),
+      allUsers: () => inject(UserService).getAllUser(),
       applications: () => inject(ApplicationService).getApplications()
     }
   },
