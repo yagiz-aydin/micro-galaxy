@@ -1,3 +1,4 @@
+// microsoft graph user dto
 export interface MicrosoftGraphUserDto {
   '@odata.context': string;
   id: string;

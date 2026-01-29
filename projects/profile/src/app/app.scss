@@ -11,14 +11,13 @@
   height: 100vh;
   margin: 0;
   color: var(--text-primary);
-  overflow: hidden;
 }
 
 .profile-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100%;
+  align-items: flex-start; /* Align to top to allow scrolling */
+  min-height: 100%;
   padding: 2rem;
   box-sizing: border-box;
 }
@@ -31,14 +30,9 @@
   border-radius: 24px;
   padding: 3rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 900px; /* Increased width for table */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  animation: float 6s ease-in-out infinite;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
+  margin-top: 2rem;
 }
 
 .header {
@@ -69,9 +63,6 @@
     margin: 0;
     font-size: 1.75rem;
     font-weight: 600;
-    background: linear-gradient(to right, #000000, #cadf89);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   .email {
@@ -86,6 +77,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .detail-item {
@@ -112,6 +104,73 @@
       border-radius: 6px;
       width: fit-content;
     }
+  }
+}
+
+/* Applications Table Styles */
+.applications-section {
+  border-top: 1px solid var(--glass-border);
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+}
+
+.applications-table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  td {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    background: rgba(0,0,0,0.05);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    width: 160px;
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 2rem;
   }
 }
 

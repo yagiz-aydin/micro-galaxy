@@ -1,44 +1,80 @@
-@if (profile() && profile().id) {
 <main class="profile-container">
   <div class="glass-card">
-    <div class="header">
-      <div class="avatar">
-        {{ profile().givenName.charAt(0) }}{{ profile().surname.charAt(0) }}
-      </div>
-      <div class="info">
-        <h1>{{ profile().displayName }}</h1>
-        <p class="email">{{ profile().userPrincipalName }}</p>
-      </div>
-    </div>
-    
-    <div class="details-grid">
-      <div class="detail-item">
-        <span class="label">Given Name</span>
-        <span class="value">{{ profile().givenName }}</span>
-      </div>
-      <div class="detail-item">
-        <span class="label">Surname</span>
-        <span class="value">{{ profile().surname }}</span>
-      </div>
-       <div class="detail-item">
-        <span class="label">Preferred Language</span>
-        <span class="value">{{ profile().preferredLanguage }}</span>
-      </div>
-      <div class="detail-item">
-        <span class="label">ID</span>
-        <span class="value code">{{ profile().id }}</span>
-      </div>
-      <div class="detail-item">
-        <span class="label">Job Title</span>
-        <span class="value">{{ profile().jobTitle || 'Not Set' }}</span>
-      </div>
-       <div class="detail-item">
-        <span class="label">Office Location</span>
-        <span class="value">{{ profile().officeLocation || 'Remote' }}</span>
-      </div>
+    <div class="applications-section">
+      <h2>Informations</h2>
+      @if (profile() && profile().id) {
+        <div class="header">
+          <div class="avatar">
+            {{ profile().givenName.charAt(0) }}{{ profile().surname.charAt(0) }}
+          </div>
+          <div class="info">
+            <h1>{{ profile().displayName }}</h1>
+            <p class="email">{{ profile().userPrincipalName }}</p>
+          </div>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail-item">
+            <span class="label">Given Name</span>
+            <span class="value">{{ profile().givenName }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Surname</span>
+            <span class="value">{{ profile().surname }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Preferred Language</span>
+            <span class="value">{{ profile().preferredLanguage }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">ID</span>
+            <span class="value code">{{ profile().id }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Job Title</span>
+            <span class="value">{{ profile().jobTitle || 'Not Set' }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Office Location</span>
+            <span class="value">{{ profile().officeLocation || 'Remote' }}</span>
+          </div>
+        </div>
+      } @else {
+        <div class="empty-state">No profile found.</div>
+      }
+      <h2>Applications</h2>
+      @if (applications() && applications().length > 0) {
+        <div class="applications-table-container">
+          <table class="applications-table">
+            <thead>
+              <tr>
+                <th>Display Name</th>
+                <th>App ID</th>
+                <th>Created</th>
+                <th>SignIn Audience</th>
+                <th>Publisher Domain</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (app of applications(); track app.id) {
+                <tr>
+                  <td>{{ app.displayName }}</td>
+                  <td class="code">{{ app.appId }}</td>
+                  <td>{{ app.createdDateTime | date }}</td>
+                  <td>{{ app.signInAudience }}</td>
+                  <td>{{ app.publisherDomain || 'N/A' }}</td>
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="5" class="empty-state">No applications found.</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      } @else {
+        <div class="empty-state">No applications found.</div>
+      }
     </div>
   </div>
 </main>
-} @else {
-  <div class="loading">Loading profile...</div>
-}

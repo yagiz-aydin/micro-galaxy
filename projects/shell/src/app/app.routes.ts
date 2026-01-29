@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { inject } from '@angular/core';
 import { UserService } from './services/user.service';
+import { ApplicationService } from './services/application.service';
 
 export const routes: Routes = [
   {
@@ -33,7 +34,8 @@ export const routes: Routes = [
     loadComponent: () => 
       loadRemoteModule('profile', './Component').then(m => m.App),
     resolve: {
-      user: () => inject(UserService).getUser()
+      user: () => inject(UserService).getUser(),
+      applications: () => inject(ApplicationService).getApplications()
     }
   },
 ];
