@@ -40,7 +40,7 @@ export class App implements OnInit, OnDestroy {
     ).subscribe({
       next: ({ user, applications, allUsers }) => {
         this.profile.set(user);
-        this.applications.set(applications.value);
+        this.applications.set(applications);
         this.allUsers.set(allUsers.value);
       },
       error: (err) => {
