@@ -1,7 +1,7 @@
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { loadRemoteModule } from '@angular-architects/native-federation';
 import { MissionService } from '../services/mission.service';
+import { FederationService } from '../services/federation.service';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +12,7 @@ import { MissionService } from '../services/mission.service';
 })
 export class HomeComponent implements OnInit {
   private missionService = inject(MissionService);
+  private federationService = inject(FederationService);
 
   mercureComp = signal<any>(null);
   venusComp = signal<any>(null);
@@ -26,9 +27,9 @@ export class HomeComponent implements OnInit {
   };
 
   async ngOnInit() {
-    this.mercureComp.set(await loadRemoteModule('mercure', './Component').then(m => m.App));
-    this.venusComp.set(await loadRemoteModule('venus', './Component').then(m => m.App));
-    this.earthComp.set(await loadRemoteModule('terra', './LandingPad').then(m => m.App));
-    this.marsComp.set(await loadRemoteModule('mars', './Component').then(m => m.App));
+    this.mercureComp.set(await this.federationService.loadRemoteModule('mercure', './Component').then(m => m.App));
+    this.venusComp.set(await this.federationService.loadRemoteModule('venus', './Component').then(m => m.App));
+    this.earthComp.set(await this.federationService.loadRemoteModule('terra', './LandingPad').then(m => m.App));
+    this.marsComp.set(await this.federationService.loadRemoteModule('mars', './Component').then(m => m.App));
   }
 }
